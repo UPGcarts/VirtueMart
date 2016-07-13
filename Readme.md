@@ -1,0 +1,1 @@
+# Hosted Payments module #
