@@ -23,9 +23,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-      Installation <installation>
-      Configuration <configuration>
-      Usage <usage>
+            Installation <installation>
+            Configuration <configuration>
+            Usage <usage>
 
 
 Indices and tables
