@@ -19,7 +19,7 @@ You are also able to handle both b2b and b2c customers. This module will cover t
 * Basic usage covering captures, refunds etc
 
 Contents:
-
+=================================================
 .. toctree::
    :maxdepth: 2
 
