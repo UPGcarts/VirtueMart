@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension method="upgrade" version="1.5" type="plugin" group="vmcustom" >
+    <name>Hosted Payment Riskclass Product Field</name>
+    <description>The custom field</description>
+    <version>0.0.1</version>
+    <languages>
+        <language tag="en-GB">language/en-GB.plg_vmcustom_riskclassproduct.ini</language>
+        <language tag="de-DE">language/de-DE.plg_vmcustom_riskclassproduct.ini</language>
+    </languages>
+    <files>
+        <filename plugin="riskclassproduct">riskclassproduct.php</filename>
+        <folder>language</folder>
+    </files>
+</extension>

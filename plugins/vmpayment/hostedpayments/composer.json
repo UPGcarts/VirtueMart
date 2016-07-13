@@ -1,0 +1,12 @@
+{
+  "minimum-stability": "dev",
+  "require": {
+    "upgplc/php-clientlibrary": "master"
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "optimize-autoloader": true
+  }
+}

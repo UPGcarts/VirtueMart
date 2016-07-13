@@ -1,0 +1,21 @@
+#admin-ui-tabs #params_loglevel {width:150px;}
+#admin-ui-tabs #params_riskclass {width:100px;}
+#admin-ui-tabs #params_mode {width:100px;}
+#admin-ui-tabs #params_autocapture {width:100px;}
+#admin-ui-tabs #params_defultlocale {width: 400px;}
+#admin-ui-tabs #params_mns_paid_autocapture {width:300px;}
+#admin-ui-tabs #params_mns_paid_reserve {width:300px;}
+#admin-ui-tabs #params_mns_paid_pending_reserve {width:300px;}
+#admin-ui-tabs #params_mns_payment_failed {width:300px;}
+#admin-ui-tabs #params_mns_payment_chargeback {width:300px;}
+#admin-ui-tabs #params_mns_in_dunning {width:300px;}
+#admin-ui-tabs #params_mns_acknowledge_pending {width:300px;}
+#admin-ui-tabs #params_mns_fraud_pending {width:300px;}
+#admin-ui-tabs #params_mns_fraud_cancelled {width:300px;}
+#admin-ui-tabs #params_mns_cia_pending {width:300px;}
+#admin-ui-tabs #params_mns_transaction_cancelled {width:300px;}
+#admin-ui-tabs #params_mns_transaction_expired {width:300px;}
+#admin-ui-tabs #params_mns_transaction_merchant_pending {width:300px;}
+#admin-ui-tabs #params_mns_transaction_in_progress {width:300px;}
+#admin-ui-tabs #params_mns_transaction_done {width:300px;}
+#admin-ui-tabs #params_mns_payment_cleared {width:300px;}

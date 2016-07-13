@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade">
+    <name>Hosted Payment</name>
+    <version>0.0.3</version>
+    <description>Hosted Payments module</description>
+    <languages>
+        <language tag="en-GB">language/en-GB.plg_vmpayment_hostedpayments.ini</language>
+        <language tag="de-DE">language/de-DE.plg_vmpayment_hostedpayments.ini</language>
+    </languages>
+    <files>
+        <filename plugin="hostedpayments">hostedpayments.php</filename>
+        <folder>language</folder>
+        <folder>vendor</folder>
+        <folder>Model</folder>
+        <folder>hostedpayments</folder>
+    </files>
+    <vmconfig>
+        <fields name="params">
+            <fieldset name="payment" addfieldpath="/plugins/vmpayment/hostedpayments/hostedpayments/fields">
+                <field type="vmtitle" description="" default="VMPAYMENT_UPG_PAYCO_CONF" />
+                <field type="text" name="merchantid" description="VMPAYMENT_UPG_PAYCO_MERCHANTID_DESC" default="" label="VMPAYMENT_UPG_PAYCO_MERCHANTID_LBL" size="50" required="true" filter="integer" />
+                <field type="text" name="password" description="VMPAYMENT_UPG_PAYCO_PASSWORD_DESC" default="" label="VMPAYMENT_UPG_PAYCO_PASSWORD_LBL" size="50" required="true" />
+
+                <field type="text" name="storeid" description="VMPAYMENT_UPG_PAYCO_STOREID_DESC" default="" label="VMPAYMENT_UPG_PAYCO_STOREID_LBL" size="50" required="true" />
+
+                <field type="text" name="loglocation" description="VMPAYMENT_UPG_PAYCO_LOGLOCATION_DESC" default="" label="VMPAYMENT_UPG_PAYCO_LOGLOCATION_LBL" size="255" required="false" />
+
+                //loglevel
+                <field class="" name="loglevel" type="list" default="1" label="VMPAYMENT_UPG_PAYCO_LOGLEVEL_LBL"
+                       description="VMPAYMENT_UPG_PAYCO_LOGLEVEL_DESC">
+                    <option value="emergency">EMERGENCY</option>
+                    <option value="alert">ALERT</option>
+                    <option value="critical">CRITICAL</option>
+                    <option value="error">ERROR</option>
+                    <option value="warning">WARNING</option>
+                    <option value="notice">NOTICE</option>
+                    <option value="info">INFO</option>
+                    <option value="debug">DEBUG</option>
+                </field>
+
+                <field class="" name="mode" type="list" default="1" label="VMPAYMENT_UPG_PAYCO_MODE_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_MODE_DESC">
+                    <option value="SANDBOX">VMPAYMENT_UPG_PAYCO_MODE_SANDBOX</option>
+                    <option value="LIVE">VMPAYMENT_UPG_PAYCO_MODE_LIVE</option>
+                </field>
+                <field class="" name="riskclass" type="list" default="1" label="VMPAYMENT_UPG_PAYCO_DEFAULT_RISKCLASS_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_DEFAULT_RISKCLASS_DESC">
+                    <option value="0">VMPAYMENT_UPG_PAYCO_DEFAULT_RISKCLASS_TRUSTED</option>
+                    <option value="1">VMPAYMENT_UPG_PAYCO_DEFAULT_RISKCLASS_DEFAULT</option>
+                    <option value="2">VMPAYMENT_UPG_PAYCO_DEFAULT_RISKCLASS_HIGH</option>
+                </field>
+                <field class="" name="autocapture" type="list" default="1" label="VMPAYMENT_UPG_PAYCO_DEFAULT_AUTOCAPTURE_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_DEFAULT_AUTOCAPTURE_DESC">
+                    <option value="0">VMPAYMENT_UPG_PAYCO_DEFAULT_AUTOCAPTURE_DISABLED</option>
+                    <option value="1">VMPAYMENT_UPG_PAYCO_DEFAULT_AUTOCAPTURE_ENABLED</option>
+                </field>
+                <field class="" name="defultlocale" type="list" default="1" label="VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_DESC">
+                    <option value="EN">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_EN</option>
+                    <option value="DE">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_DE</option>
+                    <option value="ES">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_ES</option>
+                    <option value="FI">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_FI</option>
+                    <option value="FR">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_FR</option>
+                    <option value="NL">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_NL</option>
+                    <option value="IT">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_IT</option>
+                    <option value="RU">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_RU</option>
+                    <option value="TU">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_TU</option>
+                    <option value="PT">VMPAYMENT_UPG_PAYCO_DEFAULT_LOCALE_PT</option>
+                </field>
+                <field type="vmtitle" default="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_SECTION_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_SECTION_DESC"/>
+                <field name="status_return_success" type="vmorderstate" scope="com_virtuemart" default="U"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_RETURN_SUCCESS_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_RETURN_SUCCESS_DESC"/>
+                <field name="status_return_failure" type="vmorderstate" scope="com_virtuemart" default="D"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_RETURN_FAILURE_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_RETURN_FAILURE_DESC"/>
+
+                <field type="vmtitle" default="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_SECTION_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_SECTION_DESC"/>
+                <field name="mns_paid_autocapture" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_AUTOCAPTURE_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_AUTOCAPTURE_DESC"/>
+                <field name="mns_paid_reserve" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_RESERVE_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_RESERVE_DESC"/>
+                <field name="mns_paid_pending_reserve" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_PAID_PENDING_RESERVE_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_PAID_PENDING_RESERVE_DESC"/>
+
+                <field name="mns_payment_failed" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_PAYMENT_FAILED_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_PAYMENT_FAILED_DESC"/>
+
+                <field name="mns_payment_chargeback" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_CHARGEBACK_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_CHARGEBACK_DESC"/>
+
+                <field name="mns_payment_cleared" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_CLEARED_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_CLEARED_DESC"/>
+
+                <field name="mns_in_dunning" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_INDUNNING_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_INDUNNING_DESC"/>
+
+                <field name="mns_acknowledge_pending" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_ACKNOWLEDGEPENDING_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_ACKNOWLEDGEPENDING_DESC"/>
+
+                <field name="mns_fraud_pending" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_FRAUDPENDING_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_FRAUDPENDING_DESC"/>
+
+                <field name="mns_fraud_cancelled" type="vmorderstate" scope="com_virtuemart" default="X"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_FRAUDCANCELLED_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_FRAUDCANCELLED_DESC"/>
+
+                <field name="mns_cia_pending" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_CIAPENDING_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_CIAPENDING_DESC"/>
+
+                <field name="mns_transaction_cancelled" type="vmorderstate" scope="com_virtuemart" default="X"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_CANCELLED_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_CANCELLED_DESC"/>
+
+                <field name="mns_transaction_expired" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_EXPIRED_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_EXPIRED_DESC"/>
+
+                <field name="mns_transaction_merchant_pending" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_MERCHANT_PENDING_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_MERCHANT_PENDING_DESC"/>
+
+                <field name="mns_transaction_in_progress" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_IN_PROGRESS_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_IN_PROGRESS_DESC"/>
+
+                <field name="mns_transaction_done" type="vmorderstate" scope="com_virtuemart"
+                       label="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_DONE_LABEL" description="VMPAYMENT_UPG_PAYCO_ORDER_STATUS_MNS_TRANSACTION_DONE_DESC"/>
+
+                <field type="vmtitle" default="VMPAYMENT_UPG_PAYCO_CALLBACK_URL_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_CALLBACK_URL_DESC"/>
+                <field type="hostedcallbackurls" default=""/>
+            </fieldset>
+            <fieldset name="restrictions">
+                <field type="vmtitle" default="VMPAYMENT_UPG_PAYCO_RESTRICTION_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_RESTRICTION_DESC"/>
+                <field name="countries" multiple="true" type="vmcountries" scope="com_virtuemart" default=""
+                       label="VMPAYMENT_UPG_PAYCO_COUNTRIES_LABEL" description="VMPAYMENT_UPG_PAYCO_COUNTRIES_DESC"/>
+                <field name="currency" multiple="false" type="vmcurrencies" scope="com_virtuemart" default=""
+                       label="VMPAYMENT_UPG_PAYCO_CURRENCY_LABEL" description="VMPAYMENT_UPG_PAYCO_CURRENCY_DESC"/>
+                <field name="min_amount" type="text" label="VMPAYMENT_UPG_PAYCO_MIN_AMOUNT_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_MIN_AMOUNT_DESC"/>
+                <field name="max_amount" type="text" label="VMPAYMENT_UPG_PAYCO_MAX_AMOUNT_LABEL"
+                       description="VMPAYMENT_UPG_PAYCO_MAX_AMOUNT_DESC"/>
+            </fieldset>
+        </fields>
+    </vmconfig>
+</extension>

@@ -1,0 +1,34 @@
+{
+    "name": "upgplc/php-clientlibrary",
+    "description": "The Client Library for Payco",
+    "keywords": ["Upg", "library"],
+    "require": {
+        "php": ">=5.3",
+        "monolog/monolog": ">=1.16.0,<1.18",
+        "siriusphp/validation": "dev-master"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/edmondscommerce/validation"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "~4.6",
+        "fzaninotto/faker": "1.x",
+        "johnkary/phpunit-speedtrap": "1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Upg\\Library\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Upg\\Library\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}

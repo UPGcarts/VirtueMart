@@ -1,0 +1,2 @@
+<?php vmJsApi::css( 'upg','plugins/vmpayment/upg/upg/assets/css/'); ?>
+<iframe id="upg_iframe" name="upg_iframe" style="border:none;" width="100%" height="1500px" src="<?php echo $viewData['url']; ?>" />
